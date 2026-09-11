@@ -120,6 +120,13 @@ function renderHead(page) {
   const canonical = absoluteUrl(page.path);
   const robots = page.noindex ? '<meta name="robots" content="noindex,follow">' : "";
   return `
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JL0LNV1S8Z"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JL0LNV1S8Z');
+    </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${escapeHtml(page.title)}</title>

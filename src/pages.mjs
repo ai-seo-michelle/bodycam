@@ -2,19 +2,17 @@ export const site = {
   name: "Bodycam Guide",
   url: "https://bodycam.website",
   description: "Independent Bodycam game guides for Zombies, Trenches, updates, and multiplayer modes.",
-  lastModified: "2026-09-11",
-  lastCheckedLabel: "September 11, 2026",
+  lastModified: "2026-09-26",
+  lastCheckedLabel: "September 26, 2026",
   currentFocusLabel: "Current update topics",
   footerUpdateLabel: "Updated with major changes",
   nav: [
     { label: "Zombies Guide", href: "/zombies-guide/" },
     { label: "Trenches Map", href: "/trenches-map/" },
-    { label: "Latest Update", href: "/latest-update/" },
+    { label: "Latest Update", href: "/bodycam-update/" },
     { label: "Game Modes", href: "/game-modes/" }
   ]
 };
-
-const sourceNote = `<p class="source-note">Status notes are written from official Bodycam Steam news checked on September 11, 2026. This site is independent and does not mirror official patch notes word for word.</p>`;
 
 const related = {
   zombiesGuide: {
@@ -42,10 +40,10 @@ const related = {
     description: "Major additions in the v0.8 update and links to detailed guides."
   },
   latest: {
-    href: "/latest-update/",
+    href: "/bodycam-update/",
     kicker: "Update Hub",
-    title: "Latest Bodycam Update",
-    description: "A maintainable hub for current patches and next-update notes."
+    title: "Bodycam Update",
+    description: "Latest patch, release-date status, and confirmed next-update notes."
   },
   modes: {
     href: "/game-modes/",
@@ -138,9 +136,9 @@ export const pages = [
         text: "Use the update hub to catch up on major changes, recent patches, and what to watch for next.",
         cards: [
           {
-            href: "/latest-update/",
+            href: "/bodycam-update/",
             label: "Current",
-            title: "Latest Bodycam Update",
+            title: "Bodycam Update",
             text: "Current major update, recent patch notes summary, next-update watchlist, and links to detailed pages."
           },
           {
@@ -254,7 +252,7 @@ export const pages = [
         id: "related-update",
         title: "How Locked & Loaded Changes The Context",
         html: `<p>Locked & Loaded is not just a content patch. It includes a new loadout and weapon-customization system, game-mode logic refactoring, UI changes, match-flow updates, and the new Trenches map. That means Zombies advice should be checked against the current systems instead of treated as permanent.</p>
-        <p>For update context, read the <a href="/locked-and-loaded/">Locked & Loaded hub</a> and the <a href="/latest-update/">latest update hub</a>.</p>`
+        <p>For update context, read the <a href="/locked-and-loaded/">Locked & Loaded hub</a> and the <a href="/bodycam-update/">latest update hub</a>.</p>`
       }
     ],
     faq: [
@@ -278,31 +276,42 @@ export const pages = [
   },
   {
     path: "/trenches-map/",
-    title: "Bodycam Trenches Map Guide - Overview, Tips & Update Context",
-    description: "Confirmed Bodycam Trenches map guide covering what Trenches is, close and long-range pacing, practical tips, and Locked & Loaded context.",
+    title: "Bodycam Trenches Map Guide - Layout, Key Areas & Tips",
+    description: "Bodycam Trenches map guide covering layout, confirmed key areas, close and long-range combat, night visibility, loadouts, and practical tips.",
     h1: "BODYCAM TRENCHES MAP GUIDE",
     breadcrumb: "Trenches Map",
-    kicker: "P1 map guide",
-    lede: "Trenches is the new Bodycam map added with Locked & Loaded, built around tight trench fighting and longer sightlines across exposed outdoor areas.",
-    status: `<strong>Player note:</strong> Specific spawns, routes, and match details can shift with updates, so use this as a practical overview of how the Bodycam Trenches map plays.`,
-    related: [related.locked, related.latest, related.modes, related.zombiesGuide],
+    kicker: "Map guide",
+    lede: "Trenches is the Bodycam map added with Locked & Loaded, built around trench networks, underground spaces, exposed outdoor movement, and visibility shifts.",
+    status: `<strong>Map note:</strong> Spawns, routes, and mode support can change after patches. This guide focuses on confirmed map structure and practical play. Last updated: ${site.lastCheckedLabel}.`,
+    related: [related.locked, related.latest, related.modes, related.zombiesMode],
     sections: [
       {
         id: "what-is-trenches",
-        title: "What Is The Trenches Map?",
-        html: `<p>Trenches is a new Bodycam map introduced in the Locked & Loaded update. The official description frames it as a larger battlefield with intense close-quarters fights inside trench networks and longer-range engagements across the open areas around them.</p>
-        <p>That contrast is the important part for players. Bodycam Trenches is not just an indoor CQB map, and it should not be approached like a pure long-range map either.</p>`
+        title: "Trenches Map Overview",
+        html: `<p>Trenches arrived with the Locked & Loaded update. It is built around a battlefield mix of flooded and dry trench networks, underground galleries, tunnel systems, forested areas, ruined compounds, observation posts, and a central church point of interest.</p>
+        <p>The main thing to understand is contrast. One fight may happen in a narrow trench or underground route, while the next move can expose you to longer sightlines outside.</p>`
       },
       {
-        id: "map-overview",
-        title: "Trenches Map Overview",
-        html: `<p>Official notes confirm flooded and dry trench networks, underground galleries and tunnel systems, forest environments, ruined compounds, observation posts, a central church point of interest, and multiple tactical routes across the battlefield.</p>
-        <p>In play, that means you should expect frequent shifts between covered movement, tight corners, darker interior pressure, and exposed outdoor crossings. Learn the rhythm first, then refine callouts with your own squad.</p>`
+        id: "map-layout",
+        title: "Map Layout",
+        html: `<p>The confirmed layout centers on trench routes and underground passages, with outdoor terrain and structures creating pressure around them. You should expect movement to alternate between covered trench travel, darker interior pressure, and risky open transitions.</p>
+        <ul class="check-list">
+          <li><strong>Trench networks:</strong> tight lanes, quick audio reads, and frequent close-range contact.</li>
+          <li><strong>Underground galleries and tunnels:</strong> darker movement paths where angles can collapse quickly.</li>
+          <li><strong>Forest and outdoor areas:</strong> more open repositioning with longer sightlines.</li>
+          <li><strong>Ruined compounds, observation posts, and church area:</strong> major structures that can anchor fights without needing invented callout names.</li>
+        </ul>`
+      },
+      {
+        id: "key-areas",
+        title: "Important Key Areas",
+        html: `<p>When learning Bodycam Trenches, sort the map into practical zones instead of memorizing unconfirmed callouts. The important areas are trench routes, underground connections, exposed outdoor crossings, and the larger structures that help teams regroup or hold angles.</p>
+        <p>If your squad uses custom callouts, keep them simple: trench, tunnel, outside, compound, observation, church. Clear communication matters more than a perfect name during a loud round.</p>`
       },
       {
         id: "gameplay-characteristics",
         title: "Gameplay Characteristics",
-        html: `<p>Trenches asks players to switch rhythm quickly. A short, noisy fight in the trench network can turn into an exposed crossing a few seconds later. The Locked & Loaded update also added a lighting and weather scenario system, so visibility may vary by match or round depending on the selected scenario.</p>
+        html: `<p>Trenches asks players to switch rhythm quickly. A short fight inside the trench network can turn into an exposed crossing a few seconds later. The Locked & Loaded update also added a lighting and weather scenario system, so visibility may vary by match or round.</p>
         <h3>What this means in practice</h3>
         <ul>
           <li>Expect close-range pressure inside trench corridors and underground spaces.</li>
@@ -313,25 +322,43 @@ export const pages = [
       },
       {
         id: "range-zones",
-        title: "Close-Range And Long-Range Areas",
-        html: `<p>The confirmed design contrast is simple: trench networks create confined fights, while surrounding outdoor areas create longer sightlines. This does not mean every outdoor angle is safe or every trench corner is a guaranteed close fight, but it does mean loadout choices should account for both extremes.</p>
+        title: "Close-Range And Long-Range Combat",
+        html: `<p>The confirmed design contrast is simple: trench networks create confined fights, while surrounding outdoor areas create longer sightlines. This does not mean every outdoor angle is safe or every trench corner is a guaranteed close fight, but it does mean your loadout should account for both extremes.</p>
         <p>If you are learning the map, spend early matches identifying where you repeatedly lose vision or sound information. Those weak spots tell you where to slow down, regroup, or take a different angle next round.</p>`
       },
       {
+        id: "night-vision",
+        title: "Night Vision And Visibility",
+        html: `<p>Players often search for Bodycam night vision on Trenches because visibility can be a major part of the map. Confirmed update notes point to lighting and weather scenarios, brighter night scenarios through increased moonlight, and improvements to how tactical gear reads in dark areas.</p>
+        <p>Use that as a visibility reminder rather than assuming a new Trenches-only night-vision mechanic. In darker rounds, slow down before transitions, check silhouettes, and avoid sprinting from a dark tunnel into an exposed lane without a teammate watching the angle.</p>`
+      },
+      {
+        id: "playstyle-loadout",
+        title: "Recommended Playstyle And Loadout Considerations",
+        html: `<p>The safest playstyle is controlled movement: clear the trench or tunnel in short steps, then pause before crossing open ground. A setup built only for tight corners may feel weak outside, while a setup built only for longer sightlines may punish you in tunnels.</p>
+        <ul class="tip-list">
+          <li><strong>Balance your setup.</strong> Trenches can ask for close control and outdoor reach in the same round.</li>
+          <li><strong>Do not overcommit alone.</strong> Underground routes can split a team before anyone notices.</li>
+          <li><strong>Use sound before speed.</strong> Audio gives early warning when a trench fight is about to collapse.</li>
+          <li><strong>Recheck loadouts after patches.</strong> Attachment costs, compatibility, and tuning can shift after major updates.</li>
+        </ul>`
+      },
+      {
         id: "tips",
-        title: "Practical Tips",
+        title: "Practical Map Tips",
         html: `<ul class="tip-list">
           <li><strong>Slow down before transitions.</strong> The danger point is often the move from trench cover into open exposure.</li>
           <li><strong>Pair your angle with an exit.</strong> A long sightline is only useful if you can leave when the fight collapses.</li>
-          <li><strong>Use the new loadout system thoughtfully.</strong> A setup built only for tight rooms may struggle when the map opens up.</li>
-          <li><strong>Read patch notes after hotfixes.</strong> Map list order, mode support, and match rules can change quickly after a major update.</li>
+          <li><strong>Clear underground spaces as a pair.</strong> A teammate watching the return angle can prevent a quick collapse.</li>
+          <li><strong>Use the church and larger structures as orientation points.</strong> They help you describe where pressure is coming from without overcomplicated callouts.</li>
+          <li><strong>Read the latest patch notes.</strong> Map list order, mode support, and match rules can change quickly after a major update.</li>
         </ul>`
       },
       {
         id: "locked-loaded-context",
         title: "Related Locked & Loaded Update",
-        html: `<p>Trenches is one piece of Locked & Loaded. The same update also brought the new loadout and weapon-customization system, new optics work, audio changes, a Shooting Range hub, game-mode updates, and broader technical reworks.</p>
-        <p>For the wider patch context, read the <a href="/locked-and-loaded/">Locked & Loaded update hub</a>.</p>`
+        html: `<p>Trenches is one piece of Locked & Loaded. The same update also brought the loadout and weapon-customization system, new optics work, audio changes, a Shooting Range hub, game-mode updates, and broader technical reworks.</p>
+        <p>For the wider patch context, read the <a href="/locked-and-loaded/">Locked & Loaded update hub</a>. For current patch status, read the <a href="/bodycam-update/">latest Bodycam update</a>.</p>`
       }
     ],
     faq: [
@@ -340,93 +367,128 @@ export const pages = [
         answer: "<p>Trenches was added with the Locked & Loaded major update released on September 2, 2026.</p>"
       },
       {
-        question: "Is Trenches a close-range map?",
-        answer: "<p>Partly. Official notes describe close-quarters combat in the trench network and longer-range engagements in surrounding open areas.</p>"
+        question: "What areas are on the Trenches map?",
+        answer: "<p>Confirmed map structure includes flooded and dry trench networks, underground galleries and tunnels, forest areas, ruined compounds, observation posts, and a central church point of interest.</p>"
       },
       {
-        question: "Are exact routes or weapon locations confirmed?",
-        answer: "<p>Specific routes, spawns, and weapon-location details can change with updates. This page focuses on the reliable way Trenches plays: tight trench pressure, exposed outdoor movement, and careful transitions between the two.</p>"
+        question: "Is Trenches a close-range map?",
+        answer: "<p>Partly. The trench and underground areas create close-range pressure, while outdoor areas create longer sightlines and exposed movement.</p>"
+      },
+      {
+        question: "Does Trenches use night vision?",
+        answer: "<p>Current confirmed notes support changing visibility through lighting and weather scenarios, including brighter night conditions. Do not assume a Trenches-only night-vision mechanic unless it appears in the live build or official notes.</p>"
       }
     ]
   },
   {
     path: "/zombies-mode/",
-    title: "Bodycam Zombies Mode - Availability, Maintenance & Disabled Status",
-    description: "Bodycam Zombies Mode status page explaining whether Zombies is available, why it may be disabled, and how to track maintenance.",
-    h1: "BODYCAM ZOMBIES MODE AVAILABILITY",
+    title: "Bodycam Zombies Mode - Status, Maintenance, Return Date & Guide",
+    description: "Bodycam Zombies Mode guide with current status, maintenance notes, return-date information, gameplay basics, co-op questions, and FAQ.",
+    h1: "Bodycam Zombies Mode Guide",
     breadcrumb: "Zombies Mode",
-    kicker: "Mode status",
-    lede: "This page is about availability and maintenance. For gameplay advice, use the Zombies guide; for status, start here.",
-    status: `<strong>Current status:</strong> Official notes describe Zombie Mode as temporarily disabled after Locked & Loaded.`,
-    related: [related.zombiesGuide, related.latest, related.locked, related.modes],
+    kicker: "Zombies status and guide",
+    lede: "Check whether Bodycam Zombies Mode is available now, why it may be unavailable, what is confirmed about its return, and how the mode works when it is playable.",
+    status: `<strong>Current Status:</strong> Zombies Mode is not available as a normal current playlist in the Locked & Loaded update. <strong>Return date:</strong> no confirmed return date. <strong>Last updated:</strong> ${site.lastCheckedLabel}.`,
+    related: [related.latest, related.locked, related.zombiesGuide, related.trenches, related.modes],
     sections: [
       {
-        id: "is-zombies-available",
-        title: "Is Zombies Available In Bodycam?",
-        html: `<p>Not as a normal current playlist according to the latest official notes. The important wording is temporary: Zombies is not treated as deleted, but it is disabled while the mode is reworked and prepared for a future return.</p>
-        <p>If Zombies is missing from your playlist, the reason is that the mode is temporarily disabled rather than permanently removed.</p>`
-      },
-      {
-        id: "why-disabled",
-        title: "Why Zombies Is Disabled",
-        html: `<p>The studio linked the decision to two issues: regressions caused while reworking the rest of the game, and the feeling that the mode had become too stagnant. Instead of keeping it live, the plan is to bring it back stronger later.</p>
-        <p>That means reinstalling the game, changing regions, or hunting for unofficial downloads should not be your first reaction. Check current notes first.</p>`
-      },
-      {
-        id: "maintenance-meaning",
-        title: "What Maintenance Means For Players",
-        html: `<p>Maintenance or disablement usually means the mode is being held back at the live-service level, not that each player has a broken local file. In this case, official notes also mention reintegrating Zombies into the new systems introduced by Locked & Loaded.</p>
-        <h3>What you can do</h3>
-        <ul>
-          <li>Keep the game updated.</li>
-          <li>Watch official update posts for a return window or event details.</li>
-          <li>Use current PvP modes while Zombies is unavailable.</li>
-          <li>Be cautious with outdated Zombies walkthroughs from older builds.</li>
+        id: "current-status",
+        title: "Current Status",
+        html: `<p><strong>Zombies Mode is currently unavailable in the normal live playlist.</strong> Official Locked & Loaded notes say Zombie Mode was disabled for the update while the team fixes regressions and works on bringing the mode back in a stronger form.</p>
+        <ul class="check-list">
+          <li><strong>Available now?</strong> No, not as a normal current playlist according to the latest official update notes used here.</li>
+          <li><strong>Removed forever?</strong> No. The wording points to a planned return, not permanent removal.</li>
+          <li><strong>Confirmed return date?</strong> No confirmed return date has been announced.</li>
+          <li><strong>Last updated:</strong> ${site.lastCheckedLabel}.</li>
         </ul>`
       },
       {
-        id: "return-window",
-        title: "When Could Zombies Return?",
-        html: `<p>Official wording points toward a possible event window around Halloween, but it does not confirm a Zombies return date. Treat that as a possible window, not a scheduled event.</p>
-        <p>For the latest confirmed changes, read the <a href="/latest-update/">latest update page</a>.</p>`
+        id: "is-zombies-available",
+        title: "Is Zombies Mode Available Now?",
+        html: `<p>No. If Zombies does not appear in your Bodycam playlists, that matches the current update situation. It is better to check the latest official patch notes before reinstalling, changing regions, or assuming your game files are broken.</p>
+        <p>For broader patch tracking, see the <a href="/bodycam-update/">latest Bodycam update</a>.</p>`
       },
       {
-        id: "guide-difference",
-        title: "Looking For Zombies Gameplay Help?",
-        html: `<p>For gameplay, objectives, survival tips, maps, or ending information, use the <a href="/zombies-guide/">Bodycam Zombies Guide</a>.</p>`
+        id: "why-unavailable",
+        title: "Why Is Zombies Mode Unavailable?",
+        html: `<p>The studio explained that Zombies was disabled because regressions appeared while the rest of the game was being reworked, and because the mode had become too stagnant. The stated direction is to reintroduce Zombies later instead of keeping an unstable or outdated version live.</p>`
+      },
+      {
+        id: "maintenance-status",
+        title: "Zombies Mode Maintenance And Status",
+        html: `<p>For players, maintenance means the mode can be held back from normal access even if the game itself is working. It is a live update status, not a personal account setting.</p>
+        <h3>What to do now</h3>
+        <ul>
+          <li>Keep Bodycam updated through Steam.</li>
+          <li>Watch the <a href="/bodycam-update/">latest update page</a> for confirmed patch changes.</li>
+          <li>Use PvP modes while Zombies is unavailable.</li>
+          <li>Treat old Zombies videos as older-build context until the mode returns.</li>
+        </ul>`
+      },
+      {
+        id: "return-date",
+        title: "When Will Zombies Mode Return?",
+        html: `<p>There is no confirmed Bodycam Zombies return date. Official wording has pointed toward a future Halloween or event window, but that is not the same as a dated release announcement.</p>
+        <p>Until a dated announcement appears, avoid treating countdowns, reposted clips, or old videos as confirmation.</p>`
+      },
+      {
+        id: "how-it-works",
+        title: "How Zombies Mode Works",
+        html: `<p>Zombies Mode is the zombie-focused side of Bodycam, separate from standard PvP matches. When it is playable, the safest way to approach it is to follow in-game objective prompts, manage space, listen carefully, and avoid relying on outdated route or ending claims.</p>
+        <p>Because the mode is being reworked, exact wave rules, objective chains, item locations, endings, and event rules should be checked against the live version when it returns.</p>`
+      },
+      {
+        id: "player-count-coop",
+        title: "Player Count And Co-op",
+        html: `<p>Players often ask whether Bodycam Zombies is co-op and how many people can play. The current return build has not been dated or fully detailed, so exact player count and co-op rules should not be treated as confirmed for the future version.</p>
+        <p>When Zombies returns, check the in-game lobby rules and official patch notes before relying on older player-count information.</p>`
+      },
+      {
+        id: "basic-objectives",
+        title: "Basic Objectives",
+        html: `<p>Do not assume every Zombies build uses the same objective chain. In a live match, read objective text first, identify safe fallback routes, keep teammates within recoverable distance, and verify any claimed ending route against the current version.</p>
+        <p>For deeper gameplay help, use the <a href="/zombies-guide/">Bodycam Zombies Guide</a>.</p>`
       }
     ],
     faq: [
       {
+        question: "Does Bodycam have Zombies Mode?",
+        answer: "<p>Yes. Bodycam has a Zombies Mode topic, but it is currently unavailable as a normal live playlist according to the current update notes used here.</p>"
+      },
+      {
         question: "Why is Zombies not available in Bodycam?",
-        answer: "<p>Official notes say Zombie Mode is temporarily disabled while the team fixes regressions and improves the mode for a later return.</p>"
+        answer: "<p>Official notes say Zombie Mode was disabled while the team fixes regressions and prepares a stronger version for a later return.</p>"
       },
       {
-        question: "Is Bodycam Zombies gone forever?",
-        answer: "<p>No official note says Zombies is permanently removed. The current wording points to a future return.</p>"
+        question: "Is Bodycam Zombies under maintenance?",
+        answer: "<p>Yes in the practical player sense: the mode is unavailable while it is being reworked and reintegrated with the current update direction.</p>"
       },
       {
-        question: "Is there a confirmed Zombies return date?",
-        answer: "<p>No exact date is confirmed on this page. Official notes mention a future event around Halloween, but that should be treated as a tentative window until dated patch notes appear.</p>"
+        question: "When will Bodycam Zombies be back?",
+        answer: "<p>No confirmed return date has been announced. Official wording has pointed toward a possible Halloween or event window, but not a specific date.</p>"
+      },
+      {
+        question: "Can you play Bodycam Zombies with friends?",
+        answer: "<p>The future return build has not confirmed exact player-count or co-op rules on this page. Check the live lobby and current patch notes when Zombies returns.</p>"
       }
     ]
   },
   {
     path: "/locked-and-loaded/",
-    title: "Bodycam Locked & Loaded Update - Trenches, Loadouts & Zombies",
-    description: "Version hub for the Bodycam Locked & Loaded update covering Trenches, loadout changes, weapon customization, Zombies status, and related guides.",
+    title: "Bodycam Locked & Loaded Update Hub - Trenches, Zombies & Game Modes",
+    description: "Bodycam Locked & Loaded update hub covering the major v0.8 update, Trenches, loadouts, Zombies status, game modes, and latest patch links.",
     h1: "BODYCAM LOCKED & LOADED UPDATE",
     breadcrumb: "Locked & Loaded",
-    kicker: "Major update guide",
+    kicker: "Major update hub",
     lede: "Locked & Loaded is Bodycam's September 2026 major update, adding Trenches and rebuilding major pieces of loadouts, modes, UI, audio, and match flow.",
-    status: `<strong>Major update:</strong> Locked & Loaded v0.8 released on September 2, 2026, with fast follow-up patch notes in the days after launch.`,
-    related: [related.trenches, related.zombiesMode, related.zombiesGuide, related.latest, related.modes],
+    status: `<strong>Major update:</strong> Locked & Loaded v0.8 released on September 2, 2026. For the latest follow-up patch, use the <a href="/bodycam-update/">Bodycam update page</a>.`,
+    related: [related.latest, related.trenches, related.zombiesMode, related.modes, related.zombiesGuide],
     sections: [
       {
-        id: "what-is-it",
-        title: "What Is Locked & Loaded?",
-        html: `<p>Quick answer: Bodycam Locked & Loaded is the major update released on September 2, 2026. The Locked & Loaded update added the Trenches map and changed how players think about loadouts, weapon customization, optics, equipment, game modes, audio, UI, and match flow.</p>
-        <p>If you are returning after a break, expect Bodycam to feel different. The biggest player-facing changes are learning Trenches, rebuilding your loadouts, understanding the new competitive mode direction, and checking the current Zombies status before looking for that mode in-game.</p>`
+        id: "quick-answer",
+        title: "Quick Answer",
+        html: `<p>Bodycam Locked & Loaded is the major v0.8 update. It introduced the Trenches map, a new loadout and weapon-customization direction, optics and equipment changes, UI and audio updates, game-mode changes, and a new competitive focus around Wingman 2v2.</p>
+        <p>If you are returning after a break, start with the <a href="/bodycam-update/">latest Bodycam update</a>, then use this page to jump into the detailed guides.</p>`
       },
       {
         id: "major-additions",
@@ -444,23 +506,29 @@ export const pages = [
         id: "trenches",
         title: "Trenches In Locked & Loaded",
         html: `<p>Trenches is the headline map addition. It creates a different learning problem from tighter indoor maps because players must handle both close trench pressure and more exposed outdoor movement.</p>
-        <p>Read the detailed <a href="/trenches-map/">Bodycam Trenches map guide</a> for map pacing, close-range pressure, exposed crossings, and practical tips.</p>`
+        <p>Read the detailed <a href="/trenches-map/">Bodycam Trenches map guide</a> for layout, confirmed key areas, night visibility, and practical tips.</p>`
       },
       {
         id: "loadout-customization",
         title: "Loadout And Weapon Customization",
-        html: `<p>The update introduces a new loadout and weapon-customization flow, including a large attachment pool and attachment effects such as aim speed, reload speed, recoil, spread, kick, and magazine capacity. Because compatibility and balance can change quickly after a major update, treat exact best builds as patch-sensitive.</p>`
+        html: `<p>The update introduces a new loadout and weapon-customization flow, including a large attachment pool and attachment effects such as aim speed, reload speed, recoil, spread, kick, and magazine capacity. Because compatibility and balance can change after a major update, treat exact best builds as patch-sensitive.</p>`
       },
       {
         id: "zombies",
         title: "Zombies Changes",
         html: `<p>Zombies is affected by the broader systems work around Locked & Loaded, so players should separate two questions: whether the mode is currently accessible, and how the mode should be approached when it is playable.</p>
-        <p>Use <a href="/zombies-mode/">Zombies Mode availability</a> for status and <a href="/zombies-guide/">Bodycam Zombies Guide</a> for gameplay questions.</p>`
+        <p>Use <a href="/zombies-mode/">Zombies Mode</a> for status and <a href="/zombies-guide/">Bodycam Zombies Guide</a> for gameplay questions.</p>`
       },
       {
-        id: "who-should-read",
+        id: "game-modes",
+        title: "Game Modes After Locked & Loaded",
+        html: `<p>Locked & Loaded retired Bodybomb and made Wingman 2v2 the default competitive direction. Deathmatch, Team Deathmatch, Gun Game, Hardpoint, Versus, Wingman, and Zombies are covered on the <a href="/game-modes/">Bodycam game modes</a> page.</p>`
+      },
+      {
+        id: "what-changed",
         title: "What Changed After Locked & Loaded?",
-        html: `<p>Returning players should re-check the basics after Locked & Loaded: learn Trenches, rebuild loadouts around the new customization system, expect mode and match-flow changes, and review Zombies separately before trying to queue for it.</p>`
+        html: `<p>Returning players should re-check the basics after Locked & Loaded: learn Trenches, rebuild loadouts around the customization system, expect mode and match-flow changes, and review Zombies separately before trying to queue for it.</p>
+        <p>For the newest patch notes and release-date status, go to the <a href="/bodycam-update/">Bodycam update page</a>.</p>`
       }
     ],
     faq: [
@@ -474,67 +542,112 @@ export const pages = [
       },
       {
         question: "Did Locked & Loaded make Zombies playable?",
-        answer: "<p>No. Locked & Loaded did not make Zombies the main new playable addition. Use <a href='/zombies-mode/'>Zombies Mode availability</a> for current status and <a href='/zombies-guide/'>Bodycam Zombies Guide</a> for gameplay questions.</p>"
+        answer: "<p>No. Locked & Loaded did not make Zombies the main new playable addition. Use <a href='/zombies-mode/'>Zombies Mode</a> for current status and <a href='/zombies-guide/'>Bodycam Zombies Guide</a> for gameplay questions.</p>"
+      },
+      {
+        question: "Where should I check the latest Bodycam patch?",
+        answer: "<p>Use the <a href='/bodycam-update/'>Bodycam update page</a> for the latest patch, release-date status, and next-update notes.</p>"
       }
     ]
   },
   {
-    path: "/latest-update/",
-    title: "Bodycam Latest Update - Current Patch, What's New & Next Update",
-    description: "Bodycam latest update coverage with the current major update, recent patch changes, what's new for players, and confirmed next-update news.",
-    h1: "BODYCAM LATEST UPDATE",
-    breadcrumb: "Latest Update",
-    kicker: "Current update notes",
-    lede: "Find the current Bodycam update, the latest follow-up patch changes, what players need to know now, and whether a next update date has been confirmed.",
-    status: `<strong>Current update:</strong> Locked & Loaded v0.8 with follow-up patch changes.`,
-    related: [related.locked, related.trenches, related.zombiesMode, related.zombiesGuide, related.modes],
+    path: "/bodycam-update/",
+    title: "Bodycam Update - Latest Patch, Release Date & What's New (2026)",
+    description: "Bodycam update hub for the latest patch, release date, what changed in 2026, Zombies status, Trenches updates, and confirmed next-update information.",
+    h1: "Bodycam Latest Update",
+    breadcrumb: "Bodycam Update",
+    kicker: "Latest patch and release date",
+    lede: "Track the latest confirmed Bodycam update, current patch notes, release-date status, major changes, Zombies information, and what is not officially confirmed yet.",
+    status: `<strong>Latest confirmed patch tracked here:</strong> V0.8 #6 in the Locked & Loaded update line. <strong>Last updated:</strong> ${site.lastCheckedLabel}. <strong>Next update release date:</strong> no official release date has been confirmed.`,
+    related: [related.locked, related.zombiesMode, related.trenches, related.modes, related.zombiesGuide],
     sections: [
       {
-        id: "quick-answer",
-        title: "Quick Answer",
-        html: `<p><strong>Latest major update:</strong> Locked & Loaded v0.8 is the current major Bodycam update covered here. Read the <a href="/locked-and-loaded/">Locked & Loaded update guide</a> for the full breakdown.</p>
-        <p><strong>Latest patch:</strong> The latest follow-up patch listed here is V0.8 #3 from September 8, 2026. It addressed a session-host crash exploit, restored private-lobby currency earnings at a reduced rate, and reduced attachment prices.</p>
-        <p><strong>Another update:</strong> No official release date has been confirmed for the next Bodycam update.</p>`
-      },
-      {
-        id: "current-major-update",
-        title: "Current Major Update",
-        html: `<p>Locked & Loaded v0.8 is the current major update. It added the Trenches map and changed loadouts, modes, UI, audio, and match flow. Read the <a href="/locked-and-loaded/">full Locked & Loaded guide</a> for the detailed version breakdown.</p>`
-      },
-      {
-        id: "latest-changes",
-        title: "Latest Changes",
-        html: `<p>V0.8 #3, dated September 8, 2026, addressed a session-host crash exploit, restored private-lobby currency earnings at a reduced rate, and reduced attachment prices.</p>
-        <p>Earlier follow-up patches adjusted progression rewards, fixed crash and visual issues, increased Deathmatch and Team Deathmatch score limits, and moved Trenches to the front of the map list. For current Zombies availability, see the <a href="/zombies-mode/">Zombies Mode status page</a>.</p>`
-      },
-      {
-        id: "whats-new",
-        title: "What's New For Players",
-        html: `<ul class="check-list">
-          <li><strong>Map:</strong> Trenches is the new map to learn first. Use the <a href="/trenches-map/">Trenches map guide</a> for its close-range and long-range play.</li>
-          <li><strong>Loadouts:</strong> Attachments and weapon setup changed, while exact balance may keep moving.</li>
-          <li><strong>Modes:</strong> Wingman is the default competitive mode. Check <a href="/zombies-mode/">Zombies Mode</a> for current availability.</li>
-          <li><strong>Match flow:</strong> Host migration, UI, server browser, score limits, and mode flow have all changed around the update.</li>
+        id: "latest-bodycam-update",
+        title: "Latest Bodycam Update",
+        html: `<p>The current major Bodycam update is Locked & Loaded v0.8, released on September 2, 2026. The latest confirmed patch visible in Steam news is V0.8 #6 in the same update line.</p>
+        <ul class="check-list">
+          <li><strong>Confirmed information:</strong> Locked & Loaded is the current major update family tracked here.</li>
+          <li><strong>Confirmed information:</strong> V0.8 #6 is the latest official patch entry currently covered on this page.</li>
+          <li><strong>Not yet officially confirmed:</strong> a dated next major update release.</li>
         </ul>`
       },
       {
-        id: "next-update",
-        title: "Next Update Watchlist",
-        html: `<p><strong>No official release date has been confirmed</strong> for the next Bodycam update. Current update notes leave Zombies availability, progression and economy tuning, and further fixes as the main items to watch.</p>`
+        id: "current-version",
+        title: "Current Version / Latest Patch",
+        html: `<p>The latest confirmed patch label tracked here is <strong>V0.8 #6</strong>. It followed the Locked & Loaded v0.8 release and focuses on stability fixes, host migration player-limit issues, weapon-state behavior, Film Grain settings, progression/UI changes, and smaller polish fixes.</p>
+        <p>Use the confirmed patch label as the safest reference instead of inventing a future version number that has not been announced.</p>`
+      },
+      {
+        id: "release-date",
+        title: "Release Date",
+        html: `<p><strong>Locked & Loaded v0.8 release date:</strong> September 2, 2026.</p>
+        <p><strong>Latest confirmed patch tracked here:</strong> V0.8 #6 in the Locked & Loaded update line.</p>
+        <p><strong>Next update release date:</strong> No official release date has been confirmed.</p>`
+      },
+      {
+        id: "what-changed",
+        title: "What Changed",
+        html: `<p>Recent V0.8 follow-up patches have focused on crash fixes, exploit fixes, progression and currency adjustments, attachment prices, map and mode flow, interface polish, and stability.</p>
+        <p>V0.8 #6 focuses on stability and quality-of-life fixes, including host migration player-limit issues, weapon-state behavior, Film Grain settings, progression/UI changes, and smaller polish fixes. Earlier follow-ups addressed SCAR sizing, keybinding behavior, team balance, loadout polish, map and material fixes, a session-host crash exploit, private-lobby currency earnings, attachment prices, progression rewards, score limits, and Trenches map ordering.</p>`
+      },
+      {
+        id: "major-features",
+        title: "Major Features",
+        html: `<div class="feature-list">
+          <div><h3>Trenches</h3><p>The major map addition from Locked & Loaded, with trenches, underground routes, outdoor areas, and key battlefield structures.</p></div>
+          <div><h3>Loadouts</h3><p>Weapon customization and attachments became a much larger part of how players prepare for matches.</p></div>
+          <div><h3>Modes</h3><p>Wingman 2v2 replaced Bodybomb as the default competitive direction, while other PvP modes received flow updates.</p></div>
+          <div><h3>UI, audio, and systems</h3><p>The update line changed menus, server browsing, match flow, audio behavior, stability, and supporting tools.</p></div>
+        </div>`
+      },
+      {
+        id: "zombies-update",
+        title: "Zombies Status / Update",
+        html: `<p>Zombies Mode is the biggest status question for many players. Current official wording says Zombies is disabled while it is reworked, with no confirmed return date.</p>
+        <p>For status, maintenance, return-date wording, co-op questions, and basic mode help, use <a href="/zombies-mode/">Bodycam Zombies Mode</a>.</p>`
+      },
+      {
+        id: "trenches-update",
+        title: "Trenches Update-Related Content",
+        html: `<p>Trenches remains the main map topic from Locked & Loaded. It combines trench networks, underground spaces, forest and outdoor movement, ruined compounds, observation posts, and a central church point of interest.</p>
+        <p>For layout, key areas, visibility, loadout considerations, and practical tips, read the <a href="/trenches-map/">Bodycam Trenches map guide</a>.</p>`
+      },
+      {
+        id: "whats-next",
+        title: "What's Next",
+        html: `<p>Confirmed official notes point to ongoing work around Zombies, party features, progression and economy tuning, exploit fixes, and further stability work. That does not confirm a release date or final feature list for the next update.</p>
+        <ul class="check-list">
+          <li><strong>Confirmed information:</strong> these areas have been mentioned as ongoing or affected by the current update cycle.</li>
+          <li><strong>Not yet officially confirmed:</strong> exact launch date, final version number, countdown, and full patch contents.</li>
+        </ul>`
+      },
+      {
+        id: "next-update-release-date",
+        title: "Next Update / Release Date",
+        html: `<p>No official Bodycam next update release date has been confirmed. Do not treat countdown pages, reposted clips, or speculation as a confirmed release schedule.</p>
+        <p>When a dated patch or major update is confirmed, this page should be updated instead of creating a new update URL.</p>`
       }
     ],
     faq: [
       {
-        question: "What is the latest major Bodycam update?",
-        answer: "<p>Locked & Loaded v0.8 is the current major update. See the <a href='/locked-and-loaded/'>Locked & Loaded update guide</a> for its main additions.</p>"
+        question: "What is the latest Bodycam update?",
+        answer: "<p>The current major Bodycam update is Locked & Loaded v0.8, released on September 2, 2026. The latest confirmed patch tracked here is V0.8 #6 in the same update line.</p>"
       },
       {
         question: "What is the latest Bodycam patch?",
-        answer: "<p>The latest follow-up patch listed here is V0.8 #3 from September 8, 2026. It addressed a session-host crash exploit and made progression and attachment-price changes.</p>"
+        answer: "<p>The latest confirmed patch tracked here is V0.8 #6 in the Locked & Loaded update line.</p>"
       },
       {
-        question: "Is another Bodycam update announced?",
+        question: "When is the next Bodycam update coming?",
         answer: "<p>No official release date has been confirmed for the next Bodycam update.</p>"
+      },
+      {
+        question: "Is there a Bodycam update countdown?",
+        answer: "<p>No official countdown is confirmed on this page. Treat countdowns as unofficial unless they are tied to an official dated announcement.</p>"
+      },
+      {
+        question: "Did the latest update bring Zombies back?",
+        answer: "<p>No. Current notes still treat Zombies as unavailable while it is being reworked. Use the <a href='/zombies-mode/'>Zombies Mode</a> page for status details.</p>"
       }
     ]
   },

@@ -81,7 +81,7 @@ function render404() {
       {
         id: "return",
         title: "Return To The Guide",
-        html: `<p>This page is not part of the current Bodycam Guide launch set. Start from the <a href="/">homepage</a>, or jump to the <a href="/zombies-guide/">Zombies guide</a>, <a href="/trenches-map/">Trenches map</a>, or <a href="/latest-update/">latest update hub</a>.</p>`
+        html: `<p>This page is not part of the current Bodycam Guide launch set. Start from the <a href="/">homepage</a>, or jump to the <a href="/zombies-guide/">Zombies guide</a>, <a href="/trenches-map/">Trenches map</a>, or <a href="/bodycam-update/">latest update hub</a>.</p>`
       }
     ]
   };

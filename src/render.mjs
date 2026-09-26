@@ -268,7 +268,7 @@ function renderHome(page) {
           <p class="lede">${escapeHtml(page.lede)}</p>
           <div class="hero-actions">
             <a class="button primary" href="/zombies-guide/">Read Zombies Guide</a>
-            <a class="button ghost" href="/latest-update/">Check Latest Update</a>
+            <a class="button ghost" href="/bodycam-update/">Check Latest Update</a>
           </div>
         </div>
         <div class="briefing-panel" aria-label="Current Bodycam topics">
